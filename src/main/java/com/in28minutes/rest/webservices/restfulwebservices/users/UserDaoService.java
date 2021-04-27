@@ -2,6 +2,7 @@ package com.in28minutes.rest.webservices.restfulwebservices.users;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -41,5 +42,18 @@ public class UserDaoService {
 		users.add(user);
 
 		return user;
+	}
+
+	public User deleteById(Integer id) {
+		// TODO Auto-generated method stub
+		Iterator<User> iterator = users.iterator();
+		
+		while(iterator.hasNext()) {
+			if(iterator.next().getId()==id)
+				iterator.remove();
+				return iterator.next();
+		}
+		
+		return null;
 	}
 }
